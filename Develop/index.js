@@ -8,10 +8,14 @@ const questions = [];
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {}
 
-// Function call to initialize app
 init();
 const promptUser = () => {
     return inquirer.prompt([
+      {
+        type: 'input',
+        name: 'title',
+        message: 'What is the title of your project?',
+      },
       {
         type: 'input',
         name: 'name',
@@ -19,28 +23,44 @@ const promptUser = () => {
       },
       {
         type: 'input',
-        name: 'title',
-        message: 'Title of project?',
+        name: 'description',
+        message: 'What is your project about?',
       },
       {
         type: 'input',
-        name: 'hobby',
-        message: 'What is your your project?',
+        name: 'toc',
+        message: 'List Table of contents?',
       },
       {
         type: 'input',
-        name: 'food',
-        message: 'What is your favorite food?',
+        name: 'instructions',
+        message: 'How did you Install?',
       },
       {
         type: 'input',
-        name: 'github',
-        message: 'Enter your GitHub Username',
+        name: 'usage',
+        message: 'How does it work?',
       },
       {
         type: 'input',
-        name: 'linkedin',
-        message: 'Enter your LinkedIn URL.',
+        name: 'license',
+        message: 'What kind of license did you choose?',
+      },
+      {
+        type: 'input',
+        name: 'contributing',
+        message: 'Where there any other programmers assisting?',
+      },
+      {
+        type: 'input',
+        name: 'tests',
+        message: 'Where there any test required?',
+      },
+      {
+        type: 'input',
+        name: 'questions ',
+        message: 'What is your email?',
+        message: 'What is your GitHub username?'
       },
     ]);
   };

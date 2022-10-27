@@ -1,3 +1,32 @@
-# Professional README Generator Starter Code
+# Readme Builder
 
-[How to create a Professional README](https://coding-boot-camp.github.io/full-stack/github/professional-readme-guide)
+  ## Description
+  generates a readme using the comand line
+
+  ## Name 
+  salma gonzalez
+
+  ## Table of Contents
+  -[Installation] (#installation)
+  -[Usage] (#usage)
+  -[Credits] (#credits)
+  -[licence](#licence)
+
+  ## Installation
+  undefined
+
+  ## Usage 
+  
+
+  ## Credits
+  undefined
+
+  ## Tests 
+  
+
+  ## Questions
+  
+ 
+  ## Licence 
+   this project is licenced under the undefined licence
+

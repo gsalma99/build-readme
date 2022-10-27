@@ -1,73 +1,67 @@
 // TODO: Include packages needed for this application
-const {prompt} = require('inquirer')
-const  fs  = require('fs')
-const generateMarkdown = require('./utils/generateMarkdown')
-
-
-// TODO: Create an array of questions for user input
-const questions = [
-  {
-    type: 'input',
-    name: 'title',
-    message: 'What is the title of your project?',
-  },
-  {
-    type: 'input',
-    name: 'name',
-    message: 'What is your name?',
-  },
-  {
-    type: 'input',
-    name: 'description',
-    message: 'What is your project about?',
-  },
-  {
-    type: 'input',
-    name: 'toc',
-    message: 'List Table of contents?',
-  },
-  {
-    type: 'input',
-    name: 'instructions',
-    message: 'How did you Install?',
-  },
-  {
-    type: 'input',
-    name: 'usage',
-    message: 'How does it work?',
-  },
-  {
-    type: 'input',
-    name: 'license',
-    message: 'What kind of license did you choose?',
-  },
-  {
-    type: 'input',
-    name: 'contributing',
-    message: 'Where there any other programmers assisting?',
-  },
-  {
-    type: 'input',
-    name: 'tests',
-    message: 'Where there any test required?',
-  },
-  {
-    type: 'input',
-    name: 'questions',
-    message: 'What is your email?',
-    message: 'What is your GitHub username?'
-  },
-]
-
-// TODO: Create a function to write README file
-function createReadme(fileName, data) {
-  fs.writeFile('./dist/' + fileName, generateMarkdown(data), err => console.log(err))
-}
+const inquirer = require("inquirer");
+const { writeFile } = require("fs").promises;
+const generateMarkdown = require("./utils/generateMarkdown");
 
 const promptUser = () => {
-    return prompt(questions).then(answers => {
-      console.log(answers);
-      createReadme('README.md', answers)
-    })
+    return inquirer.prompt([
+      {
+          type: "title",
+          name: "title",
+          message: "What is the name of your project?",
+        },
+      {
+        type: "input",
+        name: "name",
+        message: "What is your name?",
+      },
+      {
+        type: "input",
+        name: "description",
+        message: "What does your project do?",
+      },
+      {
+        type: "input",
+        name: "installation",
+        message: "What did you need to install before working on the project?",
+      },
+      {
+        type: "input",
+        name: "usage",
+        message: "How does your project work?",
+      },
+      {
+        type: "list",
+        name: "licence",
+        message: "What licence did you need?",
+        choices: ['MIT', 'APACHE', 'GNU', 'NONE']
+      },
+      {
+        type: "input",
+        name: "contributors",
+        message: "Were there any other programmers contributing to this project?",
+      },
+      {
+        type: "input",
+        name: "tests",
+        message: "Did you run any tests?",
+      },
+      {
+        type: "input",
+        name: "questions",
+        message: "What is your github username?",
+        message: "What is your email?"
+      },
+    ]);
   };
-  promptUser ()
+
+function writeToFile(fileName, data) {}
+
+const init = () => {
+    promptUser()
+      .then((answers) => writeFile('./readme.md', generateMarkdown(answers)))
+      .then(() => console.log('Successfully wrote to readme.md'))
+      .catch((err) => console.error(err));
+  };
+
+init();

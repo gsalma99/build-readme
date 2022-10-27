@@ -49,9 +49,13 @@ const promptUser = () => {
       {
         type: "input",
         name: "questions",
-        message: "What is your github username?",
         message: "What is your email?"
       },
+      {
+        type: "input",
+        name: "portfolio",
+        message: "What is your github username?",
+      }
     ]);
   };
 

@@ -42,9 +42,9 @@ function generateMarkdown({title, name, description, installation, usage, licenc
   -[Usage](#usage)
   ${renderLicenseLink(licence)}
   -[Credits](#credits)
-  -[Tests](Test)
-  -[Questions](Questions)
-  -[Portfolio](Portfolio)
+  -[Tests](#test)
+  -[Questions](#questions)
+  -[Portfolio](#portfolio)
 
   ## Installation
   ${installation}
